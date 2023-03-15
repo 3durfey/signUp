@@ -2,18 +2,64 @@ body {
   display: flex;
   flex-direction: row;
   min-height: 100vh;
+  font-family: 'Roboto', sans-serif;
 }
 
 .sides {
+  min-width: 50px;
   flex-grow: .3;
   background-color: black;
 }
 
 .mainRight {
+  min-width: 50%;
   flex-grow: 1;
   background-color: pink;
 }
 .mainLeft {
-  flex-grow: .8;
+  background: url("dog.jpg");
+  background-size: 102.5%;
+  flex-grow: 1.5;
+  min-width: 40%;
+  font-family: 'Caveat', cursive;
+}
+.mainLeft > .textLeft {
+  background-color: rgba(10, 0, 0, 0.359);
+  height: 15%;
+  padding-top: 15px;
+  margin-top: 60px;
+  font-size: 50px;
+  text-align: center;
+}
+
+.mainRight {
+  display: flex;
+  flex-direction: column;
+}
+.rightContainer1 {
+  flex-grow: .2;
+  display: flex;
   background-color: red;
+  width: 100%;
+  min-height: 50px;
+  justify-content: left;
+  align-items: center;
+}
+.rightContainer1 > p {
+  font-size: 15px;
+  height: 75%;
+  margin-left: 20px;
+  margin-bottom: 0;
+}
+.rightContainer2 {
+  flex-grow: .45;
+  background-color: green;
+  width: 100%;
+  height: 100px;
+}
+.rightContainer3 {
+  flex-grow: .5;
+  background-color: blue;
+  width: 100%;
+  height: 20px;
 }
