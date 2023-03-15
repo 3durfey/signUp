@@ -1,0 +1,19 @@
+body {
+  display: flex;
+  flex-direction: row;
+  min-height: 100vh;
+}
+
+.sides {
+  flex-grow: .3;
+  background-color: black;
+}
+
+.mainRight {
+  flex-grow: 1;
+  background-color: pink;
+}
+.mainLeft {
+  flex-grow: .8;
+  background-color: red;
+}
