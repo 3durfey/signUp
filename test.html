@@ -22,42 +22,69 @@
         <p style="width: 85%"><br><br><br>Vivamus tellus ligula, aliquam sit amet feugiat a, interdum a nulla. Curabitur a turpis at nunc consequat hendrerit. Morbi eget ex mauris. Vivamus at augue pretium, vulputate neque ut, commodo est.<br><br> Morbi eget ex mauris.</p>
       </class>
       <class class="rightContainer2">
-        <form class="formContainer" action="none" method="get">
+        <form onSubmit="return checkPasswords()" id="form1" class="formContainer" action="none" method="get">
+
         <div class="formContainerLeft">
           <div class="inputContainer">
             <label for="fName">FIRST NAME</label>
-            <input type="text" id="fName" name="fName" placeholder="First Name">
+            <input type="text" id="fName" name="fName" required placeholder="First Name">
           </div>
           <div class="inputContainer">
             <label for="lName">LAST NAME</label>
-            <input type="text" id="lName" name="lName" placeholder="Last Name">
+            <input type="text" id="lName" name="lName" required placeholder="Last Name">
           </div>
           <div class="inputContainer">
             <label for="email">EMAIL</label>
-            <input type="email" id="email" name="email" placeholder="Email">
+            <input type="email" id="email" name="email" required placeholder="Email">
           </div>
+
         </div class="inputContainer">
           <div class="formContainerRight">
           <div class="inputContainer">
             <label for="password">PASSWORD</label>
-            <input type="password" id="password" name="password" placeholder="Password">
+            <input type="password" id="password" required name="password" placeholder="Password">
           </div>
           <div class="inputContainer">
             <label for="password">CONFIRM PASSWORD</label>
-            <input type="password" id="passwordConfirm" name="passwordConfirm" placeholder="Confirm Password">
+            <input type="password" id="passwordConfirm" name="passwordConfirm" minlength="6" required placeholder="Confirm Password">
           </div>
           <div class="inputContainer">
             <label for="phoneNumber">PHONE NUMBER</label>
-            <input type="number" id="phoneNumber" name="phoneBumber" placeholder="Phone Number">
+            <input type="tel" id="phoneNumber" pattern="[0-9]{3}[0-9]{3}[0-9]{4}" required name="phoneNumber" placeholder="Phone Number">
           </div>
         </div>
-        </form>        
+        </form>  
+
       </class>
       <class class="rightContainer3">
-        <button type="submit">submit</button>
-
+        <button onclick=checkPasswords() id="submitButton" type="submit" form="form1">Submit</button>
       </class>
     </div>
     <div class="sides"></div>
+    <script>
+      const inputs = document.querySelectorAll("input");
+      inputs.forEach(input => {
+        input.addEventListener(
+          "invalid",
+          event => {
+            input.classList.add("error");
+          },
+          false
+        )
+      })
+      function checkPasswords() {
+      const password1 = document.getElementById("password").value;
+      const password2 = document.getElementById("passwordConfirm").value;
+        if(password1 !== password2) {
+          console.log("invalid");
+          console.log(password1 + " " + password2);
+          document.getElementById("passwordConfirm").setCustomValidity("Password does not match");;
+          return false;
+        } else {
+          document.getElementById("passwordConfirm").setCustomValidity("");;
+          return true;
+        }
+      }
+    </script>
 </body>
 </html>
